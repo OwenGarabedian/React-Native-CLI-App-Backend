@@ -16,10 +16,14 @@ const corsOptions = {
     optionSuccessStatues: 200,
 };
 
-app.use(cors(corsOptions)); // Apply the cors middleware with options
+app.use(cors(corsOptions));
 app.use('/', router); // Mount the router
 
-const port = process.env.PORT
+mongoose.connect(process.env.DB_URI)
+.then(() => console.log('DB Connected!'))
+.catch(err => console.log('ERROR:', err))
+
+const port = process.env.PORT || 4000
 const server = app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
