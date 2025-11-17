@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors'); 
 const router = require('./routes/router');
+const mongoose = require('mongoose');
+require('dotenv/config')
 
 const app = express();
 
@@ -17,10 +19,7 @@ const corsOptions = {
 app.use(cors(corsOptions)); // Apply the cors middleware with options
 app.use('/', router); // Mount the router
 
-const port = 4000;
+const port = process.env.PORT
 const server = app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
-
-
-//npm install dotenv mongoose
