@@ -27,4 +27,5 @@ router.get('/login-data', (req, res) => {
         ]
     });
 });
+
 module.exports = router;
