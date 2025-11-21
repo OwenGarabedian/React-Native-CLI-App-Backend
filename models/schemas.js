@@ -3,7 +3,10 @@ const Schema = mongoose.Schema
 
 const userSchema = new mongoose.Schema({
     id: {type:String},
-    code: {type:String},
+    users: [{
+        code: {type:String},
+        name: {type:String},
+    }]
 })
 
 const imagesSchema = new mongoose.Schema({
