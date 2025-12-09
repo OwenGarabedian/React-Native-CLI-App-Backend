@@ -21,4 +21,13 @@ router.get('/login-data', async (req, res) => {
         }
 });
 
+router.get('/userConversations', async (req, res) => {
+    const userConversations = mySchemas.userConversation
+
+    const userConversation = await userConversations.find({}).exec()
+    if (userConversation) {
+        res.send(JSON.stringify(userConversation))
+    }
+})
+
 module.exports = router;
