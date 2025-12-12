@@ -30,4 +30,13 @@ router.get('/userConversations', async (req, res) => {
     }
 })
 
+router.get('/callerLog', async (req, res) => {
+    const callerLog = mySchemas.CallerLog; 
+
+        const callerLogData = await callerLog.find({}).exec()
+    if(callerLogData){
+        res.send(JSON.stringify(callerLogData))
+    }
+})
+
 module.exports = router;
